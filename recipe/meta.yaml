@@ -1,8 +1,8 @@
-{%set name = "Flask-Principal" %}
-{%set version = "0.4.0" %}
-{%set compress_type = "tar.gz" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "f5d6134b5caebfdbb86f32d56d18ee44b080876a27269560a96ea35f75c99453" %}
+{% set name = "Flask-Principal" %}
+{% set version = "0.4.0" %}
+{% set compress_type = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash_val = "f5d6134b5caebfdbb86f32d56d18ee44b080876a27269560a96ea35f75c99453" %}
 
 package:
   name: {{ name|lower }}
@@ -10,17 +10,18 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.{{ compress_type }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
   {{ hash_type }}: {{ hash_val }}
 
 build:
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  noarch: python
+  number: 1
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
-  build:
+  host:
+    - pip
     - python
-    - setuptools
 
   run:
     - python
