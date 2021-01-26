@@ -22,10 +22,10 @@ build:
 requirements:
   host:
     - pip
-    - python
+    - python >=2.7
 
   run:
-    - python
+    - python >=2.7
     - flask
     - blinker
 
@@ -36,7 +36,8 @@ test:
 about:
   home: http://packages.python.org/Flask-Principal/
   license: MIT
-  # license_file: LICENSE in package but need new sdist on PyPi - see https://github.com/mattupstate/flask-principal/pull/16
+  # in package but need new sdist on PyPi - see https://github.com/mattupstate/flask-principal/pull/16
+  license_file: LICENSE 
   license_family: MIT
   summary: 'Identity management for flask'
   doc_url: https://pythonhosted.org/Flask-Principal/
